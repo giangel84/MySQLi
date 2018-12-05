@@ -130,6 +130,11 @@ $db_connection['password'] = "your_db_password";
 return $db_connection;
 }
 
+function hw_debug() {
+	//SET TO TRUE IF YOU WANT SOME DEBUG INFORMATIONS
+	return false;
+}
+
 //1-Function for ALL OTHER SQL STATEMENT, which not require secure binding.
 function mysqli_easy_query($query) {
 	$db_connection = mysqli_configuration();
