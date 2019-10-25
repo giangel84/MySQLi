@@ -28,20 +28,23 @@ With this script you can CRUD your database in few seconds, with the binding sec
 4. **mysqli_read** (for SELECT query)
 5. **mysqli_verify_connection** (to check the db connection)
 
-## mysqli_easy_query (function example)
+## EXAMPLES
+All functions return TRUE if query was executed without errors, else they will return FALSE
+
+## mysqli_easy_query
 
 EXAMPLE 1: Simple ALTER TABLE with ADD one column datatype
   
 	$query = "ALTER TABLE table_name ADD column_name integer";
 	$execute_query = mysqli_easy_query($query); //Return true or false
 
-## mysqli_create_database (function examples)
+## mysqli_create_database
 
 EXAMPLE 1:
 	$database_name = "books";
 	$execute_query = mysqli_create_database($database_name);
 
-## mysqli_write (function examples)
+## mysqli_write
 
 EXAMPLE 1: With values in array.
   
@@ -53,7 +56,7 @@ EXAMPLE 2: No array, direct values in query
 	
 	$execute_query = mysqli_write(array("valore1","valore2"), "INSERT INTO table_name (campo1, campo2) VALUES (?,?)"); //Return true or false
 
-## mysqli_read (function examples)
+## mysqli_read
 Explanation of $values array indexes:
 
 	$value[row_number][column_number]
