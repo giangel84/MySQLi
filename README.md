@@ -27,8 +27,6 @@ Changelog:
 
 # END LIST OF FUNCTIONS
 
-////////////////////////////////////////////////////////////////////////////
-
 # START mysqli_easy_query EXAMPLES
 
 	/* EXAMPLE 1: Simple ALTER TABLE with ADD one column datatype
@@ -38,8 +36,6 @@ Changelog:
   
 # END mysqli_easy_query EXAMPLES
 
-////////////////////////////////////////////////////////////////////////////
-
 # START mysqli_create_database EXAMPLE
 
 	/* EXAMPLE 1:
@@ -47,8 +43,6 @@ Changelog:
 		$execute_query = mysqli_create_database($database_name);
 		
 # END mysqli_create_database EXAMPLE
-
-////////////////////////////////////////////////////////////////////////////
 
 # START mysqli_write EXAMPLES
 
@@ -62,8 +56,6 @@ Changelog:
 		$execute_query = mysqli_write(array("valore1","valore2"), "INSERT INTO table_name (campo1, campo2) VALUES (?,?)"); //Return true or false
 	
 # END mysqli_write EXAMPLES
-
-////////////////////////////////////////////////////////////////////////////
 
 # START mysqli_read EXAMPLES
 
@@ -94,10 +86,10 @@ Changelog:
 			$value[row_number][column_number]
 			
 			
-	/* NOTE FOR Variables in Queries */
-	// Must use '$var' to perform the queries, example:
-	// $name = "foo";
-	// $values = mysqli_read("SELECT id FROM table_name WHERE name='$name'");
-	// ELSE the function will return an error.
+# NOTE FOR Variables in Queries
+Must use '$var' to perform the queries, example:
+$name = "foo";
+$values = mysqli_read("SELECT id FROM table_name WHERE name='$name'");
+ELSE the function will return an error.
 			
 # END mysqli_read EXAMPLES
