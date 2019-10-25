@@ -1,4 +1,6 @@
 # MySQLi Easy to use by Hardweb.it
+Sometimes you need for an easy way to start your PHP project with a full set of CRUD (Create, Read, Update, Destroy) functions.
+With this script you can CRUD your database in few seconds, with the binding security to avoid the most part of SQL injection.
 
 ## Current version
 1.3
@@ -20,68 +22,82 @@
 
 ## LIST OF FUNCTIONS
 
-1) mysqli_easy_query (FOR ALL not secure statement like: ALTER, DROP, CREATE TABLE, others)
-2) mysqli_create_database (for CREATE DATABASE statement, USE native mysqli_query function)
-3) determine variable type for mysqli_write (by passing $var, return the var type as integer, string, double, object or null)
-4) mysqli_write (for INSERT or UPDATE statement)
-5) mysqli_read (for SELECT statement)
-6) mysqli_verify_connection (for check db connection)
+1) mysqli_easy_query (for all unsecure queries, like: ALTER, DROP, CREATE TABLE)
+2) mysqli_create_database (for CREATE DATABASE query)
+3) mysqli_write (for INSERT or UPDATE query)
+4) mysqli_read (for SELECT query)
+5) mysqli_verify_connection (to check the db connection)
 
-## mysqli_easy_query (function examples)
+## mysqli_easy_query (function example)
 
-	/* EXAMPLE 1: Simple ALTER TABLE with ADD one column datatype
+/* EXAMPLE 1: Simple ALTER TABLE with ADD one column datatype
   
 	$query = "ALTER TABLE table_name ADD column_name integer";
 	$execute_query = mysqli_easy_query($query); //Return true or false
 
 ## mysqli_create_database (function examples)
 
-	/* EXAMPLE 1:
-		$database_name = "books";
-		$execute_query = mysqli_create_database($database_name);
+/* EXAMPLE 1:
+	$database_name = "books";
+	$execute_query = mysqli_create_database($database_name);
 
 ## mysqli_write (function examples)
 
-	/* EXAMPLE 1: With values in array.
+EXAMPLE 1: With values in array.
   
-		$values = array("foo1","foo2"); 
-		$query = "UPDATE table_name SET campo1=?, campo2=? WHERE id=21"; 
-		$execute_query = mysqli_write($values, $query); //Return true or false
+	$values = array("foo1","foo2"); 
+	$query = "UPDATE table_name SET campo1=?, campo2=? WHERE id=21"; 
+	$execute_query = mysqli_write($values, $query); //Return true or false
     
-	/* EXAMPLE 2: No array, direct values in query
-		$execute_query = mysqli_write(array("valore1","valore2"), "INSERT INTO table_name (campo1, campo2) VALUES (?,?)"); //Return true or false
+EXAMPLE 2: No array, direct values in query
+	
+	$execute_query = mysqli_write(array("valore1","valore2"), "INSERT INTO table_name (campo1, campo2) VALUES (?,?)"); //Return true or false
 
 ## mysqli_read (function examples)
+Explanation of $values array indexes:
 
-	/* EXAMPLE 1: With values in array.
-		$query = "SELECT id, campo1, campo2 FROM table_name";
-		$values = mysqli_read($query);
-    
-	/* EXAMPLE 2: No array, direct values in query
+	$value[row_number][column_number]
+
+EXAMPLE 1: With values in array
 	
-		$values = mysqli_read("SELECT id, campo1, campo2 FROM table_name");
-		/* HOW TO READ single row from $values
-			$id = $values[1][1];
-			$campo1 = $values[1][2];
-			$campo2 = $values[1][3];
-			echo "$id, $campo1, $campo2";
-		/* HOW TO READ multiple rows $values
-			$n_row = count($values);
-			$curr_row=1;
-			while ($curr_row <= $n_row) {
-			$id = $values[$curr_row][1];
-			$campo1 = $values[$curr_row][2];
-			$campo2 = $values[$curr_row][3];
-			$curr_row++;
-			echo "$id, $campo1, $campo2 <br>";
-			}
+	$query = "SELECT id, campo1, campo2 FROM table_name";
+	$values = mysqli_read($query);
+    
+EXAMPLE 2: No array, direct values in query
+	
+	$values = mysqli_read("SELECT id, campo1, campo2 FROM table_name");
+		
+ HOW TO READ single row from $values
+ 
+	$id = $values[1][1];
+	$campo1 = $values[1][2];
+	$campo2 = $values[1][3];
+	echo "$id, $campo1, $campo2";
+			
+HOW TO READ multiple rows $values
+
+	$n_row = count($values);
+	$curr_row=1;
+	while ($curr_row <= $n_row) {
+	$id = $values[$curr_row][1];
+	$campo1 = $values[$curr_row][2];
+	$campo2 = $values[$curr_row][3];
+	$curr_row++;
+	echo "$id, $campo1, $campo2 <br>";
+			
       
-		/* Explanation of $values array indexes:
-			$value[row_number][column_number]
+
 			
 			
-## NOTE FOR Variables in Queries
-Must use '$var' to perform the queries, example:
-$name = "foo";
-$values = mysqli_read("SELECT id FROM table_name WHERE name='$name'");
-ELSE the function will return an error.
+## Note for Variables in Queries
+Remember to use single quotes when you make your queries:
+For example if you have a variable like:
+	
+	$name = "foo";
+USE
+
+	$values = mysqli_read("SELECT id FROM table_name WHERE name='$name'"); //is correct
+
+INSTEAD
+
+	$values = mysqli_read("SELECT id FROM table_name WHERE name=$name"); //is wrong
