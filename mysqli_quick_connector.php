@@ -6,7 +6,7 @@ Last Update: 15/03/2017
 Author: Marzaro Gianluca
 Contact: info@hardweb.it
 Web: http://hardweb.it
-////////////////////////////////////////////////////////////////////////////
+*/
 
 //INCLUDES
 //Configurazione Database
