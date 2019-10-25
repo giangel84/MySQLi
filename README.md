@@ -22,11 +22,11 @@ With this script you can CRUD your database in few seconds, with the binding sec
 
 ## LIST OF FUNCTIONS
 
-1) mysqli_easy_query (for all unsecure queries, like: ALTER, DROP, CREATE TABLE)
-2) mysqli_create_database (for CREATE DATABASE query)
-3) mysqli_write (for INSERT or UPDATE query)
-4) mysqli_read (for SELECT query)
-5) mysqli_verify_connection (to check the db connection)
+1. *mysqli_easy_query* (for all unsecure queries, like: ALTER, DROP, CREATE TABLE)
+2. *mysqli_create_database* (for CREATE DATABASE query)
+3. *mysqli_write* (for INSERT or UPDATE query)
+4. *mysqli_read* (for SELECT query)
+5. *mysqli_verify_connection* (to check the db connection)
 
 ## mysqli_easy_query (function example)
 
