@@ -41,10 +41,10 @@ With this script you can CRUD your database in few seconds, with the binding sec
 4. Replace 'your_db_passwrd' with the username relative password.
 
 `
-	define('HOST', 'localhost');
-	define('DB_NAME', 'database_name');
-	define('DB_USER', 'your_db_username');
-	define('DB_PASS', 'your_db_password');
+define('HOST', 'localhost');
+define('DB_NAME', 'database_name');
+define('DB_USER', 'your_db_username');
+define('DB_PASS', 'your_db_password');
 `
 
 #### DEBUG
@@ -60,14 +60,15 @@ All functions return TRUE if query was executed without errors, else they will r
 
 ## mysqli_easy_query
 
-EXAMPLE 1: Simple ALTER TABLE with ADD one column datatype
+EXAMPLE 1: Simple ALTER TABLE to ADD one column (datatype)
   
 	$query = "ALTER TABLE table_name ADD column_name integer";
-	$execute_query = mysqli_easy_query($query); //Return true or false
+	$execute_query = mysqli_easy_query($query);
 
 ## mysqli_create_database
 
 EXAMPLE 1:
+
 	$database_name = "books";
 	$execute_query = mysqli_create_database($database_name);
 
@@ -77,11 +78,11 @@ EXAMPLE 1: With values in array.
   
 	$values = array("foo1","foo2"); 
 	$query = "UPDATE table_name SET campo1=?, campo2=? WHERE id=21"; 
-	$execute_query = mysqli_write($values, $query); //Return true or false
+	$execute_query = mysqli_write($values, $query);
     
 EXAMPLE 2: No array, direct values in query
 	
-	$execute_query = mysqli_write(array("valore1","valore2"), "INSERT INTO table_name (campo1, campo2) VALUES (?,?)"); //Return true or false
+	$execute_query = mysqli_write(array("valore1","valore2"), "INSERT INTO table_name (campo1, campo2) VALUES (?,?)");
 
 ## mysqli_read
 Explanation of $values array indexes:
