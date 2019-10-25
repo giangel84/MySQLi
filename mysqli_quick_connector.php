@@ -1,8 +1,8 @@
 <?php
 /*
 MySQLI functions for HW-Framework
-Version: 1.3
-Last Update: 15/03/2017
+Version: 1.4
+Last Update: 26/10/2019
 Author: Marzaro Gianluca
 Contact: info@hardweb.it
 Web: http://hardweb.it
