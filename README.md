@@ -1,4 +1,4 @@
-# MySQLi
+# MySQLi Easy to use by Hardweb.it
 MySQLi code v1.3
 
 Changelog:
