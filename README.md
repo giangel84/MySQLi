@@ -1,22 +1,24 @@
 # MySQLi Easy to use by Hardweb.it
-MySQLi code v1.3
 
-Changelog:
-= 1.3 =
+## Current version
+1.3
+
+## Changelog
+#### 1.3
 + renamed functions
-- deleted unused functions
++ deleted unused functions
 + rewrited examples
-= 1.2 =
+#### 1.2
 + added mysqli_create_database($database_name) -> easily create a database
 + added mysqli_easy_query($query) -> any unbinded query
-= 1.1 =
+#### 1.1
 + added mysqli_delete_data($query)
 + added +mysqli_create_table($query)
-= 1.0 =
+#### 1.0
 + First Stable release
 
 
-# START LIST OF FUNCTIONS
+## LIST OF FUNCTIONS
 
 1) mysqli_easy_query (FOR ALL not secure statement like: ALTER, DROP, CREATE TABLE, others)
 2) mysqli_create_database (for CREATE DATABASE statement, USE native mysqli_query function)
@@ -25,26 +27,20 @@ Changelog:
 5) mysqli_read (for SELECT statement)
 6) mysqli_verify_connection (for check db connection)
 
-# END LIST OF FUNCTIONS
-
-# START mysqli_easy_query EXAMPLES
+## mysqli_easy_query (function examples)
 
 	/* EXAMPLE 1: Simple ALTER TABLE with ADD one column datatype
   
 	$query = "ALTER TABLE table_name ADD column_name integer";
 	$execute_query = mysqli_easy_query($query); //Return true or false
-  
-# END mysqli_easy_query EXAMPLES
 
-# START mysqli_create_database EXAMPLE
+## mysqli_create_database (function examples)
 
 	/* EXAMPLE 1:
 		$database_name = "books";
 		$execute_query = mysqli_create_database($database_name);
-		
-# END mysqli_create_database EXAMPLE
 
-# START mysqli_write EXAMPLES
+## mysqli_write (function examples)
 
 	/* EXAMPLE 1: With values in array.
   
@@ -54,10 +50,8 @@ Changelog:
     
 	/* EXAMPLE 2: No array, direct values in query
 		$execute_query = mysqli_write(array("valore1","valore2"), "INSERT INTO table_name (campo1, campo2) VALUES (?,?)"); //Return true or false
-	
-# END mysqli_write EXAMPLES
 
-# START mysqli_read EXAMPLES
+## mysqli_read (function examples)
 
 	/* EXAMPLE 1: With values in array.
 		$query = "SELECT id, campo1, campo2 FROM table_name";
@@ -86,10 +80,8 @@ Changelog:
 			$value[row_number][column_number]
 			
 			
-# NOTE FOR Variables in Queries
+## NOTE FOR Variables in Queries
 Must use '$var' to perform the queries, example:
 $name = "foo";
 $values = mysqli_read("SELECT id FROM table_name WHERE name='$name'");
 ELSE the function will return an error.
-			
-# END mysqli_read EXAMPLES
