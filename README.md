@@ -30,14 +30,14 @@ With this script you can CRUD your database in few seconds, with the binding sec
 
 ## mysqli_easy_query (function example)
 
-/* EXAMPLE 1: Simple ALTER TABLE with ADD one column datatype
+EXAMPLE 1: Simple ALTER TABLE with ADD one column datatype
   
 	$query = "ALTER TABLE table_name ADD column_name integer";
 	$execute_query = mysqli_easy_query($query); //Return true or false
 
 ## mysqli_create_database (function examples)
 
-/* EXAMPLE 1:
+EXAMPLE 1:
 	$database_name = "books";
 	$execute_query = mysqli_create_database($database_name);
 
