@@ -3,9 +3,13 @@ Sometimes you need for an easy way to start your PHP project with a full set of 
 With this script you can CRUD your database in few seconds, with the binding security to avoid the most part of SQL injection.
 
 ## Current version
-1.3
+1.4
 
 ## Changelog
+#### 1.4
++ Simplified and reduced codes
++ Add constants to set the db connection instead array
++ Readme completed
 #### 1.3
 + renamed functions
 + deleted unused functions
@@ -20,13 +24,36 @@ With this script you can CRUD your database in few seconds, with the binding sec
 + First Stable release
 
 
-## LIST OF FUNCTIONS
+## LIST OF DB FUNCTIONS
 
 1. **mysqli_easy_query** (for all unsecure queries, like: ALTER, DROP, CREATE TABLE)
 2. **mysqli_create_database** (for CREATE DATABASE query)
 3. **mysqli_write** (for INSERT or UPDATE query)
 4. **mysqli_read** (for SELECT query)
 5. **mysqli_verify_connection** (to check the db connection)
+
+## CONFIGURE THE CONNECTION
+
+#### DB connection configuration
+1. Replace 'localhost' with your hostname or IP address
+2. Replace 'database_name' with your.
+3. Replace 'your_db_username' with the username which have access and privileges to operate on database
+4. Replace 'your_db_passwrd' with the username relative password.
+
+`
+	define('HOST', 'localhost');
+	define('DB_NAME', 'database_name');
+	define('DB_USER', 'your_db_username');
+	define('DB_PASS', 'your_db_password');
+`
+
+#### DEBUG
+If you need for debug information, while testing the queries, you can replace 'return false' with 'return true'.
+
+	function hw_debug() {
+		//Set to TRUE if you need debug output
+		return false;
+	}
 
 ## EXAMPLES
 All functions return TRUE if query was executed without errors, else they will return FALSE
