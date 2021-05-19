@@ -40,20 +40,22 @@ With this script you can CRUD your database in few seconds, with the binding sec
 3. Replace 'your_db_username' with the username which have access and privileges to operate on database
 4. Replace 'your_db_passwrd' with the username relative password.
 
-`
-define('HOST', 'localhost');
-define('DB_NAME', 'database_name');
-define('DB_USER', 'your_db_username');
-define('DB_PASS', 'your_db_password');
-`
+```php
+	define('HOST', 'localhost');
+	define('DB_NAME', 'database_name');
+	define('DB_USER', 'your_db_username');
+	define('DB_PASS', 'your_db_password');
+```
 
 #### DEBUG
 If you need for debug information, while testing the queries, you can replace 'return false' with 'return true'.
 
+```php
 	function hw_debug() {
 		//Set to TRUE if you need debug output
 		return false;
 	}
+```
 
 ## EXAMPLES
 All functions return TRUE if query was executed without errors, else they will return FALSE
@@ -61,52 +63,58 @@ All functions return TRUE if query was executed without errors, else they will r
 ## mysqli_easy_query
 
 EXAMPLE 1: Simple ALTER TABLE to ADD one column (datatype)
-  
+```php
 	$query = "ALTER TABLE table_name ADD column_name integer";
 	$execute_query = mysqli_easy_query($query);
+```
 
 ## mysqli_create_database
 
 EXAMPLE 1:
 
+```php
 	$database_name = "books";
 	$execute_query = mysqli_create_database($database_name);
-
+```
 ## mysqli_write
 
 EXAMPLE 1: With values in array.
-  
+```php
 	$values = array("foo1","foo2"); 
 	$query = "UPDATE table_name SET campo1=?, campo2=? WHERE id=21"; 
 	$execute_query = mysqli_write($values, $query);
+```
     
 EXAMPLE 2: No array, direct values in query
-	
+```php	
 	$execute_query = mysqli_write(array("valore1","valore2"), "INSERT INTO table_name (campo1, campo2) VALUES (?,?)");
+```
 
 ## mysqli_read
 Explanation of $values array indexes:
-
+```php
 	$value[row_number][column_number]
-
+```
 EXAMPLE 1: With values in array
-	
+```php	
 	$query = "SELECT id, campo1, campo2 FROM table_name";
 	$values = mysqli_read($query);
-    
+```    
 EXAMPLE 2: No array, direct values in query
-	
+```php	
 	$values = mysqli_read("SELECT id, campo1, campo2 FROM table_name");
-		
+```
+
  HOW TO READ single row from $values
- 
+ ```php
 	$id = $values[1][1];
 	$campo1 = $values[1][2];
 	$campo2 = $values[1][3];
 	echo "$id, $campo1, $campo2";
-			
-HOW TO READ multiple rows $values
+```
 
+HOW TO READ multiple rows $values
+```php
 	$n_row = count($values);
 	$curr_row=1;
 	while ($curr_row <= $n_row) {
@@ -115,10 +123,7 @@ HOW TO READ multiple rows $values
 	$campo2 = $values[$curr_row][3];
 	$curr_row++;
 	echo "$id, $campo1, $campo2 <br>";
-			
-      
-
-			
+```
 			
 ## Note for Variables in Queries
 Remember to use single quotes when you make your queries:
